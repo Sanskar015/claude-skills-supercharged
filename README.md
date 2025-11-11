@@ -179,7 +179,7 @@ The skills system uses a **7-stage injection pipeline**:
 │    python-best-practices: 0.92     Required (>0.65)         │
 │    git-workflow: 0.58              Suggested (0.50-0.65)    │
 │    api-security: 0.12              Ignored (<0.50)          │
-└──────────────────┬──────────────────────────────────────────┘
+└────────────────────┬────────────────────────────────────────┘
                      ↓
 ┌─────────────────────────────────────────────────────────────┐
 │ 4.  Skill Filtration                                        │
