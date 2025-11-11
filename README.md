@@ -24,11 +24,10 @@ context—every time.
 
 | Metric | Value |
 |--------|-------|
-| ✅ Test Coverage | **118/118 tests passing** (100%) |
+| ✅ Test Coverage | **118/118 tests passing** |
 | ⚡ Response Time | **<10ms** (cached) / ~200ms (first call) |
 | 💰 Monthly Cost | **$1-2** @ 100 prompts/day |
 | 🎯 Accuracy | **95%+** skill detection rate |
-| 🔄 Cache Hit Rate | **60-80%** after warmup |
 
 ---
 
