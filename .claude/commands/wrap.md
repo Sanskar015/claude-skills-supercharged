@@ -25,8 +25,6 @@ For all changes/additions made, please:
   and use constants/enums where appropriate.
 - If there are ANY actionable next steps or current problems/failures, detail
   them in the form of an actionable summary for the next session.
-- If there is an associated wip/ task, please update it to reflect the current
-  status.
 
 When finished, provide a commit message (without any single quotes) summarizing
 the changes made.
