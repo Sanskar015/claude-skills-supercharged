@@ -33,9 +33,7 @@ describe('Affinity Injection System', () => {
 
       const affinities = findAffinityInjections(['frontend-framework'], [], skillRules);
 
-      expect(affinities).toEqual(
-        expect.arrayContaining(['system-architecture', 'api-protocols'])
-      );
+      expect(affinities).toEqual(expect.arrayContaining(['system-architecture', 'api-protocols']));
       expect(affinities.length).toBe(2);
     });
 
@@ -151,9 +149,7 @@ describe('Affinity Injection System', () => {
       // Injecting architecture should trigger api-protocols and integration-tools (they list it)
       const affinities = findAffinityInjections(['system-architecture'], [], skillRules);
 
-      expect(affinities).toEqual(
-        expect.arrayContaining(['api-protocols', 'integration-tools'])
-      );
+      expect(affinities).toEqual(expect.arrayContaining(['api-protocols', 'integration-tools']));
       expect(affinities.length).toBe(2);
     });
 
@@ -193,9 +189,7 @@ describe('Affinity Injection System', () => {
       // Note: integration-tools is NOT injected because it lists architecture,
       // but architecture is in the affinity list, not the toInject list
       // The function only checks toInject, not the affinities themselves
-      expect(affinities).toEqual(
-        expect.arrayContaining(['system-architecture', 'api-protocols'])
-      );
+      expect(affinities).toEqual(expect.arrayContaining(['system-architecture', 'api-protocols']));
       expect(affinities.length).toBe(2);
     });
   });
@@ -338,9 +332,7 @@ describe('Affinity Injection System', () => {
 
       const affinities = findAffinityInjections(['frontend-framework'], [], skillRules);
 
-      expect(affinities).toEqual(
-        expect.arrayContaining(['system-architecture', 'api-protocols'])
-      );
+      expect(affinities).toEqual(expect.arrayContaining(['system-architecture', 'api-protocols']));
       expect(affinities.length).toBe(2);
     });
 
