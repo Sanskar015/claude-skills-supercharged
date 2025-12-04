@@ -6,7 +6,7 @@
  * per-conversation using conversation_id or session_id.
  */
 
-import { existsSync, readFileSync, writeFileSync, mkdirSync, unlinkSync } from 'fs';
+import { existsSync, readFileSync, writeFileSync, mkdirSync, renameSync } from 'fs';
 import { join } from 'path';
 import type { SessionState } from './types.js';
 
@@ -80,14 +80,8 @@ export function writeSessionState(
     // This prevents corruption if multiple hooks run concurrently
     writeFileSync(tempFile, JSON.stringify(stateData, null, 2));
 
-    // Rename is atomic on most filesystems
-    if (existsSync(stateFile)) {
-      unlinkSync(stateFile);
-    }
-
-    // Note: renameSync would be better but requires importing from fs
-    writeFileSync(stateFile, readFileSync(tempFile, 'utf-8'));
-    unlinkSync(tempFile);
+    // renameSync is atomic on POSIX systems - overwrites existing file atomically
+    renameSync(tempFile, stateFile);
   } catch (err) {
     // Don't fail the hook if state writing fails
     console.error('Warning: Failed to write session state:', err);
