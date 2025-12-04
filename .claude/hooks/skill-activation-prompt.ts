@@ -19,6 +19,7 @@ import {
   formatJustInjectedSection,
   formatAlreadyLoadedSection,
   formatRecommendedSection,
+  formatManualLoadSection,
   formatClosingBanner,
 } from './lib/output-formatter.js';
 import type { SkillRulesConfig } from './lib/types.js';
@@ -154,6 +155,13 @@ async function main(): Promise<void> {
 
       // Show remaining recommended skills
       output += formatRecommendedSection(filtration.remainingSuggested, analysis.scores);
+
+      // Show manual-load required skills (autoInject: false)
+      const manualSkills = [...requiredDomainSkills, ...suggestedDomainSkills].filter((skill) => {
+        const skillRule = rules.skills[skill];
+        return !existingAcknowledged.includes(skill) && skillRule?.autoInject === false;
+      });
+      output += formatManualLoadSection(manualSkills);
 
       output += formatClosingBanner();
       console.log(output);

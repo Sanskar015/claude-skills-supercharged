@@ -15,27 +15,19 @@ describe('Affinity Injection System', () => {
       const skillRules: Record<string, SkillRule> = {
         'frontend-framework': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           affinity: ['system-architecture', 'api-protocols'],
         },
         'system-architecture': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
         },
         'api-protocols': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
         },
       };
 
       const affinities = findAffinityInjections(['frontend-framework'], [], skillRules);
 
-      expect(affinities).toEqual(
-        expect.arrayContaining(['system-architecture', 'api-protocols'])
-      );
+      expect(affinities).toEqual(expect.arrayContaining(['system-architecture', 'api-protocols']));
       expect(affinities.length).toBe(2);
     });
 
@@ -43,19 +35,13 @@ describe('Affinity Injection System', () => {
       const skillRules: Record<string, SkillRule> = {
         'frontend-framework': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           affinity: ['system-architecture', 'api-protocols'],
         },
         'system-architecture': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
         },
         'api-protocols': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
         },
       };
 
@@ -73,14 +59,10 @@ describe('Affinity Injection System', () => {
       const skillRules: Record<string, SkillRule> = {
         'frontend-framework': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           affinity: ['system-architecture'],
         },
         'system-architecture': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
         },
       };
 
@@ -98,19 +80,13 @@ describe('Affinity Injection System', () => {
       const skillRules: Record<string, SkillRule> = {
         'frontend-framework': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           affinity: ['system-architecture', 'api-protocols'],
         },
         'system-architecture': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
         },
         'api-protocols': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
         },
       };
 
@@ -130,20 +106,14 @@ describe('Affinity Injection System', () => {
       const skillRules: Record<string, SkillRule> = {
         'api-protocols': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           affinity: ['system-architecture'], // api-protocols lists architecture
         },
         'integration-tools': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           affinity: ['system-architecture'], // integration-tools lists architecture
         },
         'system-architecture': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           // architecture lists NO affinities (root skill)
         },
       };
@@ -151,9 +121,7 @@ describe('Affinity Injection System', () => {
       // Injecting architecture should trigger api-protocols and integration-tools (they list it)
       const affinities = findAffinityInjections(['system-architecture'], [], skillRules);
 
-      expect(affinities).toEqual(
-        expect.arrayContaining(['api-protocols', 'integration-tools'])
-      );
+      expect(affinities).toEqual(expect.arrayContaining(['api-protocols', 'integration-tools']));
       expect(affinities.length).toBe(2);
     });
 
@@ -161,26 +129,18 @@ describe('Affinity Injection System', () => {
       const skillRules: Record<string, SkillRule> = {
         'frontend-framework': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           affinity: ['system-architecture', 'api-protocols'], // frontend-framework lists arch + api-protocols
         },
         'system-architecture': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           // architecture lists nothing
         },
         'api-protocols': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           affinity: ['system-architecture'], // api-protocols lists architecture
         },
         'integration-tools': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           affinity: ['system-architecture'], // integration-tools lists architecture
         },
       };
@@ -193,9 +153,7 @@ describe('Affinity Injection System', () => {
       // Note: integration-tools is NOT injected because it lists architecture,
       // but architecture is in the affinity list, not the toInject list
       // The function only checks toInject, not the affinities themselves
-      expect(affinities).toEqual(
-        expect.arrayContaining(['system-architecture', 'api-protocols'])
-      );
+      expect(affinities).toEqual(expect.arrayContaining(['system-architecture', 'api-protocols']));
       expect(affinities.length).toBe(2);
     });
   });
@@ -203,7 +161,7 @@ describe('Affinity Injection System', () => {
   describe('Edge Cases', () => {
     it('should handle empty toInject array', () => {
       const skillRules: Record<string, SkillRule> = {
-        skill1: { type: 'domain', enforcement: 'suggest', priority: 'high' },
+        skill1: { type: 'domain' },
       };
 
       const affinities = findAffinityInjections([], [], skillRules);
@@ -215,8 +173,6 @@ describe('Affinity Injection System', () => {
       const skillRules: Record<string, SkillRule> = {
         'skill-no-affinity': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           // No affinity field
         },
       };
@@ -230,8 +186,6 @@ describe('Affinity Injection System', () => {
       const skillRules: Record<string, SkillRule> = {
         'skill-empty-affinity': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           affinity: [], // Empty array
         },
       };
@@ -245,14 +199,10 @@ describe('Affinity Injection System', () => {
       const skillRules: Record<string, SkillRule> = {
         'parent-skill': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           affinity: ['manual-skill'],
         },
         'manual-skill': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           autoInject: false, // Manual load required
         },
       };
@@ -267,20 +217,14 @@ describe('Affinity Injection System', () => {
       const skillRules: Record<string, SkillRule> = {
         'skill-a': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           affinity: ['common-skill'],
         },
         'skill-b': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           affinity: ['common-skill'],
         },
         'common-skill': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
         },
       };
 
@@ -294,14 +238,10 @@ describe('Affinity Injection System', () => {
       const skillRules: Record<string, SkillRule> = {
         'skill-a': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           affinity: ['skill-b'],
         },
         'skill-b': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           affinity: ['skill-a'],
         },
       };
@@ -319,28 +259,20 @@ describe('Affinity Injection System', () => {
       const skillRules: Record<string, SkillRule> = {
         'frontend-framework': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           affinity: ['system-architecture', 'api-protocols'],
         },
         'system-architecture': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
         },
         'api-protocols': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           affinity: ['system-architecture'],
         },
       };
 
       const affinities = findAffinityInjections(['frontend-framework'], [], skillRules);
 
-      expect(affinities).toEqual(
-        expect.arrayContaining(['system-architecture', 'api-protocols'])
-      );
+      expect(affinities).toEqual(expect.arrayContaining(['system-architecture', 'api-protocols']));
       expect(affinities.length).toBe(2);
     });
 
@@ -348,14 +280,10 @@ describe('Affinity Injection System', () => {
       const skillRules: Record<string, SkillRule> = {
         'integration-tools': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           affinity: ['system-architecture'],
         },
         'system-architecture': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
         },
       };
 
@@ -368,19 +296,13 @@ describe('Affinity Injection System', () => {
       const skillRules: Record<string, SkillRule> = {
         'frontend-framework': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
           affinity: ['system-architecture', 'api-protocols'],
         },
         'system-architecture': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
         },
         'api-protocols': {
           type: 'domain',
-          enforcement: 'suggest',
-          priority: 'high',
         },
       };
 

@@ -386,7 +386,17 @@ Available models:
 
 ### Adjust Confidence Thresholds
 
-Edit `.claude/hooks/lib/constants.ts`:
+All thresholds can be configured via environment variables (set in `.claude/hooks/.env`):
+
+```bash
+# In .claude/hooks/.env
+SKILL_CONFIDENCE_THRESHOLD=0.65  # Auto-inject threshold (default: 0.65)
+SKILL_SUGGESTED_THRESHOLD=0.50   # Suggested threshold (default: 0.50)
+SKILL_SHORT_PROMPT_WORDS=6       # Skip AI for prompts under N words (default: 6)
+SKILL_CACHE_TTL_MS=3600000       # Cache TTL in ms (default: 1 hour)
+```
+
+Or edit defaults in `.claude/hooks/lib/constants.ts`:
 
 ```typescript
 export const CONFIDENCE_THRESHOLD = 0.65; // Auto-inject
@@ -396,6 +406,14 @@ export const MAX_SUGGESTED_SKILLS = 2; // Max suggested skills per prompt
 ```
 
 ### Adjust Cache TTL
+
+Via environment variable (recommended):
+
+```bash
+SKILL_CACHE_TTL_MS=3600000  # 1 hour in milliseconds
+```
+
+Or edit `.claude/hooks/lib/constants.ts`:
 
 ```typescript
 export const CACHE_TTL_MS = 60 * 60 * 1000; // 1 hour

@@ -125,7 +125,8 @@ export function findAffinityInjections(
 
     // Direction 1: This skill lists affinities (parent → child)
     // Example: frontend-framework → ["system-architecture", "api-protocols"]
-    const affinities = config?.affinity || [];
+    // Enforce max 2 items at runtime (matches schema constraint)
+    const affinities = (config?.affinity || []).slice(0, 2);
     for (const affinity of affinities) {
       // Only inject if:
       // 1. Not already acknowledged (loaded in session)
